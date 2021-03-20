@@ -1,0 +1,474 @@
+:root{
+    --primary-color: #0f9d58;
+    --backgroud-color: #f0f3f7;
+    --second-color: #9da2ad;
+    --grey: #7a7a7b;
+    --white: #ffffff;
+}
+
+*,body{
+    font-family: 'Poppins', sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+a {
+    color: unset;
+    text-decoration: none;
+}
+
+body, html{
+    background-color: var(--backgroud-color);
+    scroll-behavior: smooth;
+    position: relative;
+    overflow-x: hidden;
+  
+}
+
+.nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99;
+    background-color: var(--backgroud-color); 
+    box-shadow: rgba(99 ,99, 99, 0.2) 0px 2px 5px 5px;  
+}
+.menu-wrap{
+    max-width: 1366px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+}
+.logo{
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--primary-color);
+}
+.menu{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.menu-item{
+    margin-left: 1rem;
+    padding: .5rem 1.5rem;
+    font-weight: 600;
+    color: var(--grey);
+    transition: .5s ease-in-out;
+    cursor: pointer;
+}
+.menu-item:hover, .menu-item.active{
+    color: var(--white);
+    background-color: var(--primary-color);
+    border-radius: 1rem;
+}
+.cart-btn{
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+    font-size: 2rem;
+    cursor: pointer;
+    transition: .5s ease-in-out;
+}
+.cart-btn:hover{
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 1rem;
+}
+.fullheight{
+    height: 100vh;
+}
+.align-item-center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.bg-img{
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.bg-img-fixed{
+    background-attachment: fixed;
+}
+.container{
+    width: 100%;
+    max-width: 1366px;
+    margin: 0 auto;
+}
+
+
+section {
+    padding: 9rem 0;
+}
+
+.slogan {
+    text-align: left;
+}
+
+.slogan h1 {
+    font-size: 7rem;
+    color: var(--primary-color);
+}
+
+.slogan button {
+    padding: 1rem 5rem;
+    outline: none;
+    border: none;
+    background-color: var(--background-color);
+    border: .125rem solid var(--primary-color);
+    border-radius: 2rem;
+    color: var(--primary-color);
+    margin: 3rem 0;
+    cursor: pointer;
+    font-weight: 600;
+    transition: .5s ease-in-out;
+}
+
+.slogan button:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.fullwidth{
+    width: 100%;
+}
+#about img{
+    border-radius: 2rem;
+}
+
+.about-slogan{
+    width: 100%;
+    border-radius: 2rem;
+    padding: 4rem;
+    background-color: var(--white);
+    text-align: center;
+    box-shadow: rgba(0 ,0, 0, 0.15) 0px px 8px;
+    transform: translateX(-30%);
+}
+.about-slogan h3{
+    font-size: 25px;
+    margin-bottom: 3rem;
+    font-weight: 600;
+}
+.primary-color{
+    color: var(--primary-color);
+}
+.about-slogan{
+    color: var(--grey);
+}
+
+
+.food-menu{
+    padding: 4rem;
+    background-color: var(--white);
+    border-radius: 2rem;
+    box-shadow: rgba(100 ,100, 111, 0.2) 0px 7px 29px 0px;
+}
+.food-menu h2{
+    color: var(--grey);
+    font-size: 25px;
+}
+.food-menu p{
+    margin: 2rem 0;
+}
+
+
+.food-menu {
+    padding: 4rem;
+    background-color: var(--white);
+    border-radius: 2rem;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.food-menu h1 {
+    color: var(--grey);
+}
+
+.food-menu p {
+    margin: 2rem 0;
+}
+
+.food-category {
+    display: flex;
+}
+
+.food-category button{
+    padding: .5rem 2.5rem;
+    margin: 0 1rem;
+    outline: none;
+    border: 1px solid var(--primary-color);
+    background-color: transparent;
+    color: var(--primary-color);
+    font-weight: 600;
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: .5s ease-in-out;
+}
+.food-category button.active, .food-category button:hover{
+    color: white;
+    background-color: var(--primary-color);
+}
+
+
+.food-item-wrap{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-top: 3rem;
+}
+
+.food-item{
+    width: 25%;
+    height: 30rem;
+    padding: 1rem;
+}
+.item-wrap{
+    height: 100%;
+    transition: .4s ease-in-out;
+    cursor: pointer;
+}
+.item-wrap:hover{
+    border-radius: 2rem;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+                rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+
+.item-img{
+    height: 60%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 2rem;
+}
+.img-holder{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: 0.5s ease-in-out;
+    border-radius: 2rem;
+}
+.img-holder:hover{
+    transform: scale(2) rotate(45deg);
+}
+.item-info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 3rem;
+    padding: 0 1rem;
+}
+
+.item-info h3{
+    color: var(--grey);
+    padding: 1rem 0;
+}
+.item-info>div:first-child{
+    text-align: left;
+}
+
+
+/* SECTION REVIEW */
+.review-wrap{
+    width: 100%;
+    background-color: var(--white);
+    padding: 1rem;
+    border-radius: 3rem;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;  
+    position: relative; 
+}
+
+.review-wrap.active{
+    transform: scale(1.2) !important;
+    z-index: 9;
+}
+
+.review-content{
+    padding: 3rem;
+    border-bottom: .125rem solid var(--grey);
+    position: relative;
+    text-align: center;
+}
+
+.review-img{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -2.5rem;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 2rem;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;  
+}
+
+.review-info{
+    padding: 3rem;
+    text-align: center;
+}
+
+.rating{
+    margin-top: 2rem;
+    color: var(--primary-color);
+}
+
+/* Footer */
+
+.footer{
+    color: var(--white);
+    line-height: 25px;
+}
+.footer h1{
+    color: var(--primary-color);
+    font-size: 25px;
+    font-weight: 600;
+}
+.input-group{
+    padding: 1rem;
+    position: relative;
+    margin-top: 2rem;
+    border: .125px solid var(--primary-color);
+    border-radius: 2rem;
+    
+    display: flex;
+    justify-content: space-between;
+    
+}
+.input-group input{
+    flex: auto;
+    outline: none;
+    border: none;
+    color: var(--primary-color);
+    background: transparent;
+}
+.input-group button{
+    padding: 0.5rem;
+    cursor: pointer;
+    outline: none;
+    color:var(--white);
+    border-radius: 1rem;
+    border:0;
+    background-color: var(--primary-color) ;
+}
+
+.back-to-top{
+    border-radius: 10px;
+    position: fixed;
+    right: 2rem;
+    bottom: 2rem;
+    z-index: 99;
+    font-size: 2rem;
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 0.5rem;
+}
+/* Grid system */
+
+
+
+.row{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+[class*="col-"]{
+    padding: 1rem;
+}
+
+.col-1{
+    width: 8.33%;
+}
+.col-2{
+    width: 16.66%;
+}
+.col-3{
+    width: 25%;
+}
+.col-4{
+    width: 33.33%;
+}
+.col-5{
+    width: 41.66%;
+}
+.col-6{
+    width: 50%;
+}
+.col-7{
+    width: 58.33%;
+}
+.col-8{
+    width: 66.66%;
+}
+.col-9{
+    width: 75%;
+}
+.col-10{
+    width: 83.33%;
+}
+.col-11{
+    width: 91.66%;
+}
+.col-12{
+    width: 100%;
+}
+
+/* Extra small devices (phone, 600px down) */
+@media only screen and (max-width: 600px){
+
+    .review-wrap.active{
+        transform: scale(1) !important;
+        
+    }
+    .col-xs-1{
+        width:8.33%;
+    }
+    .col-xs-2{
+        width:16.66%;
+    }
+    .col-xs-3{
+        width:25%;
+    }
+    .col-xs-4{
+        width:33.33%;
+    }
+    .col-xs-5{
+        width:41.66%;
+    }
+    .col-xs-6{
+        width:50%;
+    }
+    .col-xs-7{
+        width:58.33%;
+    }
+    .col-xs-8{
+        width:66.66%;
+    }
+    .col-xs-9{
+        width:75%;
+    }
+    .col-xs-10{
+        width:83.33%;
+    }
+    .col-xs-11{
+        width:91.66%;
+    }
+    .col-xs-12{
+        width:100%;
+    }
+    .h-xs{
+        display: none;
+    }
+}
+
+
