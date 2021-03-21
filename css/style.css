@@ -372,7 +372,48 @@ section {
     background-color: var(--primary-color);
     color: var(--white);
     padding: 0.5rem;
+    display: none;
 }
+
+
+/* Tab menu */
+.food-item-wrap>div {
+    display: none;
+}
+
+.food-item-wrap.all>div {
+    display: block;
+}
+
+.food-item-wrap.salad>div.salad-type {
+    display: block;
+}
+
+.food-item-wrap.lorem>div.lorem-type {
+    display: block;
+}
+
+.food-item-wrap.ipsum>div.ipsum-type {
+    display: block;
+}
+
+.food-item-wrap.dolor>div.dolor-type {
+    display: block;
+}
+
+/* ANIMATION */
+
+.left-to-right{
+    transform: translateX(-150%);
+    transition: 1s ease-in-out;
+}
+
+.left-to-right.start{
+    transform: translateX(0);
+}
+
+
+
 /* Grid system */
 
 
