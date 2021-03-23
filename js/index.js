@@ -41,7 +41,7 @@ Array.from(categories).forEach((item, index) => {
 //on scroll animation
 let scroll = window.requestAnimationFrame || function(callback) {window.setTimeout(callback, 1000/60)}
 
-let elToShow = document.querySelectorAll('.play-on-scroll')
+let elToShow = document.querySelectorAll('.play-on-scroll');
 
 isElInViewPort = (el) => {
     let rect = el.getBoundingClientRect()
@@ -58,13 +58,29 @@ isElInViewPort = (el) => {
 loop = () => {
     elToShow.forEach((item, index) => {
         if (isElInViewPort(item)) {
-            item.classList.add('start')
+            item.classList.add('start');
         } else {
-            item.classList.remove('start')
+            item.classList.remove('start');
         }
     })
 
-    scroll(loop)
+    scroll(loop);
 }
 
-loop()
+loop();
+
+// mobile nav
+
+let bottomNavItems = document.querySelectorAll('.mb-nav-item')
+
+let bottomMove = document.querySelector('.mb-move-item')
+
+bottomNavItems.forEach((item, index) => {
+    item.onclick = (e) => {
+        console.log('object')
+        let crrItem = document.querySelector('.mb-nav-item.active')
+        crrItem.classList.remove('active')
+        item.classList.add('active')
+        bottomMove.style.left = index * 25 + '%'
+    }
+})

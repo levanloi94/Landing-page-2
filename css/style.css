@@ -412,8 +412,31 @@ section {
     transform: translateX(0);
 }
 
+.right-to-left{
+    transform:  translateX(150%);
+    transition: 1s ease-in-out;
+}
+.right-to-left.start{
+    transform: translateX(0);
+}
 
 
+.delay-2{
+    transition-delay: .2s;
+}
+
+.delay-4{
+    transition-delay: .4s;
+}
+.delay-6{
+    transition-delay: .6s;
+}
+.delay-8{
+    transition-delay: .8s;
+}
+.delay-10{
+    transition-delay: .10s;
+}
 /* Grid system */
 
 
@@ -467,10 +490,96 @@ section {
 /* Extra small devices (phone, 600px down) */
 @media only screen and (max-width: 600px){
 
-    .review-wrap.active{
-        transform: scale(1) !important;
-        
+    *{
+        font-size: 13px;
     }
+    h1{
+        font-size: 3rem!important;
+    }
+    span{
+        font-size: inherit;
+    }
+
+    .cart-btn{
+        font-size: 2rem;
+    }
+
+    .about{
+        background-image:url(../img/dan-gold-4_jhDO54BYg-unsplash.jpg);
+        background-attachment: fixed;
+    }
+    .about-slogan{
+        transform: translateX(0)!important;
+    }
+
+    .food-menu{
+        padding: 4rem 0;
+    }
+
+    .food-item{
+        width: 50%;
+        height: 25rem;
+    }
+    .food-category{
+        overflow-y: scroll;
+    }
+    .food-category button{
+        width: max-content;
+    }
+    .back-to-top{
+        bottom: 6rem;
+        right: 1rem;
+    }
+    
+    .review-wrap.active{
+        transform: unset !important;
+    }
+
+
+    /* Mobile Nav */
+    .mb-nav{
+        position: fixed;
+        bottom: 0;
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        background-color: var(--white);
+        z-index: 999;
+        overflow:hidden;
+        border-top-left-radius: 2rem;
+        border-bottom-right-radius: 2rem;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    }
+
+    .mb-nav-item{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 25%;
+        padding: 1rem 0;
+    }
+
+    .mb-nav-item i,
+    .mb-nav-item a{
+        font-size: 2rem;
+        color: var(--second-color);
+        z-index: 99;
+        transition: .5s ease-in-out;
+    }
+
+    .mb-nav-item.active i{
+        color: var(--white);
+    }
+    .mb-move-item{
+        position: absolute;
+        left: 0;
+        width: 25%;
+        height: 100%;
+        background-color: var(--primary-color);
+        transition: .5s ease-in-out;
+    }
+
     .col-xs-1{
         width:8.33%;
     }
