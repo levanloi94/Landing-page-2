@@ -65,7 +65,7 @@ body, html{
     background-color: var(--primary-color);
     border-radius: 1rem;
 }
-.cart-btn{
+.cart-btn, .cart{
     width: 3rem;
     height: 3rem;
     display: flex;
@@ -75,7 +75,9 @@ body, html{
     font-size: 2rem;
     cursor: pointer;
     transition: .5s ease-in-out;
+    position: relative; 
 }
+
 .cart-btn:hover{
     background-color: var(--primary-color);
     color: white;
@@ -104,6 +106,13 @@ body, html{
     width: 100%;
     max-width: 1366px;
     margin: 0 auto;
+}
+
+.cart span{
+    position: absolute;
+    top: 0;
+    right: -2px;
+    font-size: 16px;
 }
 
 
@@ -437,9 +446,93 @@ section {
 .delay-10{
     transition-delay: .10s;
 }
+
+/* Shopping cart */
+/* .cart-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+} */
+.shopping-cart{
+    padding: 4rem;
+    background-color: var(--white);
+    border-radius: 2rem;
+    box-shadow: rgba(100 ,100, 111, 0.2) 0px 7px 29px 0px;
+    
+}
+.product-header{
+    color: var(--grey);
+    font-weight: 600;
+    width: 100%;
+    display: flex;
+    border-bottom: 4px solid var(--primary-color);
+    margin: 0 auto;
+    justify-content: flex-start;
+    padding-bottom: .5rem ;
+}
+.product-title{
+    width: 45%;
+}
+.price{
+    width: 15%;
+    display: flex;
+    align-items: center;
+    margin-left: 1rem;
+}
+.quantity{
+    width: 30%;
+    display: flex;
+    align-items: center;
+}
+.total{
+    width: 10%;
+    display: flex;
+    align-items: center;
+}
+
+.product-container{
+    display: flex;
+    padding: 1rem;
+}
+
+.product{
+    width: 45%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.close-icon{
+    font-size: 25px;
+    color: var(--primary-color);
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+
+.product img{
+    width: 200px;
+    height: 200px;
+    margin-right: 1rem;
+    border-radius: 1rem;
+}
+.product-container .price{
+    font-size: 25px;
+    color: var(--primary-color);
+}
+
+.decrease, .increase{
+    color: var(--primary-color);
+    cursor: pointer;
+    margin: .5rem;
+    font-size: 20px ;
+}
+.quantity span{
+    color: var(--primary-color);
+    font-size: 25px;
+}
 /* Grid system */
-
-
 
 .row{
     display: flex;

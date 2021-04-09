@@ -20,55 +20,6 @@ Array.from(menuItems).forEach((item,index)=>{
     }
 })
 
-//food category
-
-let foodMenuList = document.querySelector('.food-item-wrap');
-
-let foodCategory = document.querySelector('.food-category');
-
-let categories = foodCategory.querySelectorAll('button');
-
-Array.from(categories).forEach((item, index) => {
-    item.onclick = (e) => {
-        let currCat = foodCategory.querySelector('button.active');
-        currCat.classList.remove('active');
-        e.target.classList.add('active');
-        foodMenuList.classList ='food-item-wrap '+ e.target.getAttribute('data-food-type');
-        
-    }
-});
-
-//on scroll animation
-let scroll = window.requestAnimationFrame || function(callback) {window.setTimeout(callback, 1000/60)}
-
-let elToShow = document.querySelectorAll('.play-on-scroll');
-
-isElInViewPort = (el) => {
-    let rect = el.getBoundingClientRect()
-
-    return (
-        (rect.top <= 0 && rect.bottom >= 0)
-        ||
-        (rect.bottom >= (window.innerHeight || document.documentElement.clientHeight) && rect.top <= (window.innerHeight || document.documentElement.clientHeight))
-        ||
-        (rect.top >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight))
-    )
-}
-
-loop = () => {
-    elToShow.forEach((item, index) => {
-        if (isElInViewPort(item)) {
-            item.classList.add('start');
-        } else {
-            item.classList.remove('start');
-        }
-    })
-
-    scroll(loop);
-}
-
-loop();
-
 // mobile nav
 
 let bottomNavItems = document.querySelectorAll('.mb-nav-item')
@@ -216,12 +167,43 @@ function totalCost(product){
     }else{
         localStorage.setItem("totalCost", product.price);
     }
+}
 
-
+function displayCart(){
+    cartItems = localStorage.getItem("productsInCart");
+    cartItems = JSON.parse(cartItems);
     
+    console.log(cartItems);
+
+    let productContainer = document.querySelector(".products");
 
 
+    if(cartItems && productContainer){
+        productContainer.innerHTML = '';
+        Object.values(cartItems).map(item =>{
+            productContainer.innerHTML += `
+            <div class="product-container">
+                <div class="product">
+                    <i class='bx bxs-x-circle close-icon'></i>
+                    <img src="./img/${item.tag}.jpg">
+                    <span>${item.name}</span>
+                </div>
+                <div class="price">
+                    $${item.price},00
+                </div>
+                <div class ="quantity">
+                    <i class='decrease bx bxs-caret-left-circle'></i>
+                    <span>${item.inCart}</span>
+                    <i class='increase bx bxs-caret-right-circle' ></i>
+                </div>
+                <div class="total">
+                    $${item.inCart * item.price},00
+                </div>
+            </div>
+            `
+        });
+    }
 }
 
 onloadCartNumber();
-
+displayCart();

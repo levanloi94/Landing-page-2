@@ -1,0 +1,12 @@
+.shopping-cart{
+    padding: 4rem;
+    background-color: var(--white);
+    border-radius: 2rem;
+    box-shadow: rgba(100 ,100, 111, 0.2) 0px 7px 29px 0px;
+}
+.product-header{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    border-bottom: 4px solid gray;
+}
