@@ -479,6 +479,7 @@ section {
     display: flex;
     align-items: center;
     margin-left: 1rem;
+    
 }
 .quantity{
     width: 30%;
@@ -521,7 +522,12 @@ section {
     font-size: 25px;
     color: var(--primary-color);
 }
-
+.product-container .total{
+    font-size: 25px;
+    color: var(--primary-color);
+    display: flex;
+    justify-content: center;
+}
 .decrease, .increase{
     color: var(--primary-color);
     cursor: pointer;
@@ -531,6 +537,31 @@ section {
 .quantity span{
     color: var(--primary-color);
     font-size: 25px;
+}
+.basketTotalContainer{
+    display: flex;
+    justify-content: flex-end;
+    padding: 1rem;
+    align-items: baseline;
+}
+.basketTotalTitle{
+    margin-right: 1rem;
+    color: var(--grey);
+    font-size: 2rem;
+}
+.basketTotal{
+    font-size: 2rem;
+    color: var(--primary-color);
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+.shopping-cart h2{
+    font-size: 25px;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    font-weight: bold;
 }
 /* Grid system */
 
