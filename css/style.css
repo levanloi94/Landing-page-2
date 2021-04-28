@@ -281,6 +281,7 @@ section {
 .item-info h3{
     color: var(--grey);
     padding: 1rem 0;
+    font-weight:bold;
 }
 .item-info>div:first-child{
     text-align: left;
@@ -611,7 +612,56 @@ section {
     width: 100%;
 }
 
-/* Extra small devices (phone, 600px down) */
+/* Ipad tablet screen */
+@media only screen and (max-width:1023px){
+    .fullheight{
+        height: 600px;
+    }
+    section{
+        padding:5rem 0;
+    }
+    .slogan h1 {
+        font-size: 5rem;
+    }
+    .about-slogan h3 {
+        font-size: 23px;
+        margin: bottom 1rem;
+    }
+    .about-slogan{
+        padding: 1rem;
+    }
+
+    .food-category button {
+        padding: 1rem 2rem;
+        margin: 0 .5rem;
+    }
+    .food-item {
+        height: 20rem;
+    }
+    .item-info h3 {
+        font-weight: unset;
+        font-size:16px
+    }
+    .review-info {
+        padding: 4rem 1rem;
+    }
+    .review-content {
+        padding: 1rem;
+    }
+    .review-img {
+       
+        bottom: -3rem;
+        width: 5rem;
+        height: 5rem;
+    }
+    .review-content{
+        padding-bottom: 2.5rem;
+    }
+    .input-group button {
+        transform: translateX(-40px);
+    }
+}
+/* Phone Screen */
 @media only screen and (max-width: 600px){
 
     *{
@@ -744,5 +794,6 @@ section {
         display: none;
     }
 }
+
 
 
