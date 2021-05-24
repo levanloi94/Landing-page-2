@@ -26,7 +26,7 @@ let foodMenuList = document.querySelector('.food-item-wrap');
 
 let foodCategory = document.querySelector('.food-category');
 
-let categories = foodCategory.querySelectorAll('button');
+let categories = document.querySelectorAll('button');
 
 Array.from(categories).forEach((item, index) => {
     item.onclick = (e) => {
@@ -34,7 +34,6 @@ Array.from(categories).forEach((item, index) => {
         currCat.classList.remove('active');
         e.target.classList.add('active');
         foodMenuList.classList ='food-item-wrap '+ e.target.getAttribute('data-food-type');
-        
     }
 });
 
@@ -85,9 +84,15 @@ bottomNavItems.forEach((item, index) => {
     }
 })
 
+
+
 //addcart
 
 let carts = document.querySelectorAll('.cart-btn');
+
+function randomId(){
+    return Math.floor(Math.random() * 100000);
+}
 
 let products = [
     {
@@ -97,42 +102,49 @@ let products = [
         inCart:0
     },
     {
+     
         name:'Lorem ipsum2',
         tag:'food2',
         price:130,
         inCart:0
     },
     {
+       
         name:'Lorem ipsum3',
         tag:'food3',
         price:140,
         inCart:0
     },
     {
+      
         name:'Lorem ipsum4',
         tag:'food4',
         price:150,
         inCart:0
     },
     {
+        
         name:'Lorem ipsum5',
         tag:'food5',
         price:160,
         inCart:0
     },
     {
+        
         name:'Lorem ipsum6',
         tag:'food6',
         price:170,
         inCart:0
     },
     {
+        
         name:'Lorem ipsum7',
         tag:'food7',
         price:180,
         inCart:0
     },
     {
+        
         name:'Lorem ipsum8',
         tag:'food8',
         price:190,
@@ -198,8 +210,6 @@ function setItems(product){
         }
     }
    
-
-    
     localStorage.setItem("productsInCart", JSON.stringify(cartItems));
 }
 
@@ -216,10 +226,6 @@ function totalCost(product){
     }else{
         localStorage.setItem("totalCost", product.price);
     }
-
-
-    
-
 
 }
 

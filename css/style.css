@@ -94,13 +94,13 @@ body, html{
 }
 
 .bg-img{
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
 }
 
 .bg-img-fixed{
-    background-attachment: fixed;
+        background-attachment: fixed;
 }
 .container{
     width: 100%;
@@ -535,14 +535,20 @@ section {
     margin: .5rem;
     font-size: 20px ;
 }
-.quantity span{
+.quantity input{
     color: var(--primary-color);
     font-size: 25px;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    width: 20px;
+    text-align: center;
 }
 .basketTotalContainer{
     display: flex;
     justify-content: flex-end;
-    padding: 1rem;
+    margin-top: 2rem;
+    padding-right: 1rem;
     align-items: baseline;
 }
 .basketTotalTitle{

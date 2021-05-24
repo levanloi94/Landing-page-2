@@ -109,8 +109,6 @@ function onloadCartNumber(){
 
 function cartNumbers(product){
 
-    // console.log("The product clicked is", product);
-
     let productNumbers = localStorage.getItem('cartNumbers');
     
     productNumbers = parseInt(productNumbers);
@@ -125,7 +123,6 @@ function cartNumbers(product){
     }
 
     setItems(product);
-
 }
 
 function setItems(product){
@@ -155,12 +152,9 @@ function setItems(product){
 }
 
 function totalCost(product){
-    // console.log("the product price is", product.price);
+ 
     let cartCost = localStorage.getItem('totalCost');
     
-    // console.log("may cart cost is", cartCost);
-    // console.log(typeof cartCost);
-
     if(cartCost != null){
         cartCost = parseInt(cartCost);
         localStorage.setItem("totalCost", cartCost +product.price)
@@ -173,7 +167,6 @@ function displayCart(){
     cartItems = localStorage.getItem("productsInCart");
     cartItems = JSON.parse(cartItems);
     let totalCost = localStorage.getItem("totalCost");
-    console.log(totalCost);
     // console.log(cartItems);
 
     let productContainer = document.querySelector(".products");
@@ -186,7 +179,7 @@ function displayCart(){
             productContainer.innerHTML += `
             <div class="product-container">
                 <div class="product">
-                    <i class='bx bxs-x-circle close-icon'></i>
+                    <i class='bx bxs-x-circle close-icon delete-cart'></i>
                     <img src="./img/${item.tag}.jpg">
                     <span>${item.name}</span>
                 </div>
@@ -195,14 +188,15 @@ function displayCart(){
                 </div>
                 <div class ="quantity">
                     <i class='decrease bx bxs-caret-left-circle'></i>
-                    <span>${item.inCart}</span>
-                    <i class='increase bx bxs-caret-right-circle' ></i>
+                    <input class = "quantity-number" value="${item.inCart}"></input>
+                    <i class='increase bx bxs-caret-right-circle'></i>
                 </div>
-                <div class="total">
+                <div class="total total-item">
                     $${item.inCart * item.price},00
                 </div>
             </div>
             `
+            
         });
 
         productContainer.innerHTML +=`
@@ -220,8 +214,104 @@ function displayCart(){
     }
 }
 
-
 onloadCartNumber();
 displayCart();
 
+let deleteCartBtn = document.querySelectorAll('.delete-cart');
+
+for (let i=0; i<deleteCartBtn.length; i++){
+    deleteCartBtn[i].addEventListener('click', () =>{
+        console.log("delte cart", i+1);
+        deleteCart(i);
+        deleteCartBtn[i].parentElement.parentElement.remove();
+    })
+}
+
+function updateCartNumberAndTotalCost(productInCart){
+    let newTocalCost = 0;
+    let newCartNumber = 0;
+    if(productInCart.length>0){
+        console.log("display new total cost");
+        productInCart.map(item =>{
+            newTocalCost += item.price * item.inCart; 
+            newCartNumber +=item.inCart;
+        })
+        document.querySelector('.basketTotal').textContent = `$${newTocalCost},00`;
+        console.log("newtotal cost", newTocalCost);
+        console.log("new Cart Number", newCartNumber);
+        localStorage.setItem("totalCost", newTocalCost);
+        localStorage.setItem("cartNumbers", newCartNumber);
+        document.querySelector('.cart span').textContent = newCartNumber;
+       
+        
+    }else{
+        newTocalCost = 0;
+        newCartNumber = 0;
+        localStorage.setItem("totalCost", newTocalCost);
+        localStorage.setItem("cartNumbers", newCartNumber);
+        document.querySelector('.cart span').textContent = newCartNumber;
+        document.querySelector('.basketTotal').textContent = `$0,00`; 
+    }
+}
+
+function deleteCart(cartItem){
+    let productIncarts = Object.values(JSON.parse(localStorage.getItem("productsInCart")));
+    let newProductIncarts;
+    console.log("product in cart before delte", productIncarts);
+    if(productIncarts.length>1){
+        newProductIncarts = productIncarts.filter(product =>{
+        return product !== productIncarts[cartItem];
+        })
+    }else{
+        newProductIncarts = [];
+    }
+
+    console.log("product in cart after delte", newProductIncarts);
+    localStorage.setItem("productsInCart", JSON.stringify(newProductIncarts));
+
+
+    updateCartNumberAndTotalCost(newProductIncarts);
+}
+
+function updateQuanTity(){
+    let decreaseBtn = document.querySelectorAll('.decrease');
+    let increaseBtn = document.querySelectorAll('.increase');
+    let quantity = document.querySelectorAll('.quantity-number');
+    let newTotal = document.querySelectorAll('.total-item');
+    let productIncarts = Object.values(JSON.parse(localStorage.getItem("productsInCart")));
+
+    console.log(productIncarts);
+
+    for(let i = 0; i< decreaseBtn.length; i++){
+        decreaseBtn[i].addEventListener('click', ()=>{
+            console.log("dereased",i);
+            let value = productIncarts[i].inCart;
+            value = value  - 1;
+            quantity[i].value = value;
+            productIncarts[i].inCart=value;
+            newTotal[i].textContent = `$${productIncarts[i].price * productIncarts[i].inCart},00`;
+            localStorage.setItem("productsInCart", JSON.stringify(productIncarts));
+
+            updateCartNumberAndTotalCost(productIncarts);
+            
+        })
+    }
+    for(let i = 0; i< increaseBtn.length; i++){
+        increaseBtn[i].addEventListener('click', ()=>{
+            console.log("increased");
+            let value = productIncarts[i].inCart;
+            value = value  + 1;
+            quantity[i].value = value;
+            productIncarts[i].inCart=value;
+            newTotal[i].textContent = `$${productIncarts[i].price * productIncarts[i].inCart},00`;
+            localStorage.setItem("productsInCart", JSON.stringify(productIncarts));
+             
+            updateCartNumberAndTotalCost(productIncarts);
+              
+        })
+    }
+   
+    
+}
+updateQuanTity();
 
