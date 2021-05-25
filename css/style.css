@@ -94,13 +94,13 @@ body, html{
 }
 
 .bg-img{
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .bg-img-fixed{
-        background-attachment: fixed;
+    background-attachment: fixed;
 }
 .container{
     width: 100%;
@@ -297,9 +297,10 @@ section {
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
     rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;  
     position: relative; 
+    transition: .5s linear;
 }
 
-.review-wrap.active{
+.review-wrap.active, .review-wrap:hover{
     transform: scale(1.2) !important;
     z-index: 9;
 }
@@ -491,11 +492,13 @@ section {
     width: 10%;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .product-container{
     display: flex;
     padding: 1rem;
+    position: relative;
 }
 
 .product{
@@ -518,6 +521,7 @@ section {
     height: 200px;
     margin-right: 1rem;
     border-radius: 1rem;
+    object-fit: cover;
 }
 .product-container .price{
     font-size: 25px;
@@ -644,9 +648,15 @@ section {
     .food-item {
         height: 20rem;
     }
+    .item-info{
+        margin-top: 1rem;
+    }
     .item-info h3 {
         font-weight: unset;
         font-size:16px
+    }
+    .img-holder{
+        height: 85%;
     }
     .review-info {
         padding: 4rem 1rem;
@@ -666,7 +676,20 @@ section {
     .input-group button {
         transform: translateX(-40px);
     }
-}
+    .product img{
+        width: 150px;
+        height: 150px;
+    }
+    .product-container .total-item{
+        font-size: 23px;
+       
+    }
+    .product-container .price{
+        font-size: 23px;
+    }
+    .basketTotalContainer{
+        padding-right: 0;
+    }
 /* Phone Screen */
 @media only screen and (max-width: 600px){
 
@@ -691,7 +714,18 @@ section {
     .about-slogan{
         transform: translateX(0)!important;
     }
-
+    .about-slogan h3{
+        margin-bottom: 30px;
+    }
+    .about-slogan p{
+        text-align:inherit;
+    }
+    .slogan h1{
+        margin-bottom: 1rem;
+    }
+    .slogan p{
+        line-height: 20px;
+    }
     .food-menu{
         padding: 4rem 0;
     }
@@ -715,6 +749,21 @@ section {
         transform: unset !important;
     }
 
+    /* Shopping cart */
+
+    .product-container .product{
+        position: relative;
+    }
+    .product-container .delete-cart{
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translateX(-100%);
+    }
+    .product-header{
+        opacity: 0;
+        visibility: visible;
+    }
 
     /* Mobile Nav */
     .mb-nav{
@@ -800,6 +849,3 @@ section {
         display: none;
     }
 }
-
-
-

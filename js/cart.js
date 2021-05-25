@@ -291,7 +291,6 @@ function updateQuanTity(){
             productIncarts[i].inCart=value;
             newTotal[i].textContent = `$${productIncarts[i].price * productIncarts[i].inCart},00`;
             localStorage.setItem("productsInCart", JSON.stringify(productIncarts));
-
             updateCartNumberAndTotalCost(productIncarts);
             
         })
@@ -305,9 +304,8 @@ function updateQuanTity(){
             productIncarts[i].inCart=value;
             newTotal[i].textContent = `$${productIncarts[i].price * productIncarts[i].inCart},00`;
             localStorage.setItem("productsInCart", JSON.stringify(productIncarts));
-             
+
             updateCartNumberAndTotalCost(productIncarts);
-              
         })
     }
    
